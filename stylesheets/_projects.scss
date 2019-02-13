@@ -1,0 +1,18 @@
+ul.projects li.root {
+    background: white;
+    padding: 10px;
+    border: 1px solid #d7d7d7;
+}
+
+#projects-index {
+    column-count: auto;
+    column-width: auto;
+    -webkit-column-count: auto;
+    -webkit-column-width: auto;
+    -moz-column-count: auto;
+    -moz-column-width: auto;
+}
+
+#projects-index ul.projects div.root a.project:last-child {
+    margin: 0;
+}

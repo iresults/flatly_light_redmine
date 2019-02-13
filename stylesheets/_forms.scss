@@ -1,0 +1,21 @@
+@import "prelude";
+
+
+input[type=text],
+input[type=date],
+input[type=tel],
+input[type=email],
+input[type=search],
+select,
+textarea {
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+    border: 1px solid $gray;
+    padding: 2px 5px;
+    line-height: 1.5;
+
+    &:focus {
+        border: 1px solid $gray-dark;
+        outline: none;
+    }
+}
