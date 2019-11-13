@@ -1,3 +1,5 @@
+@import "prelude";
+
 .wrapper {
     text-align: center;
     margin: 200px auto 50px auto;
@@ -17,7 +19,7 @@
 .burger .two,
 .burger .three {
     margin-top: 3px;
-    background: #258ecd;
+    background: $color-normal;
     width: 33px;
     height: 4px;
     position: absolute;
@@ -31,4 +33,3 @@
 .burger .three {
     margin-top: 23px;
 }
-
