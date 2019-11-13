@@ -1,137 +1,133 @@
-/*
-1 New
-2 Assigned
-3 Resolved
-4 Feedback
-5 Closed
-*/
+// /*
+// 1 New
+// 2 Assigned
+// 3 Resolved
+// 4 Feedback
+// 5 Closed
+// */
 
-/* new */
-tr.odd.priority-1,
-table.list tbody tr.odd.priority-1:hover {
+$blue-ultralight: #d9edf7 !default;
+$green-ultralight: #dff0d8 !default;
+$red-ultralight: #f2dede !default;
+$yellow-ultralight: #fbf8ca !default;
+$gray-light: #e2e2e2 !default;
+
+$issue-priority-style: (
+    prio1: (
+        background: $blue-ultralight,
+        // color: inherit,
+        // border: transparent
+    ),
+    prio2: (
+        background: white,
+        // color: inherit,
+        // border: transparent
+    ),
+    prio3: (
+        background: $green-ultralight,
+        // color: inherit,
+        // border: transparent
+    ),
+    prio4: (
+        background: white,
+        // color: inherit,
+        // border: transparent
+    ),
+    prio5: (
+        background: $yellow-ultralight,
+        // color: inherit,
+        // border: transparent
+    ),
+    prio6: (
+        background: $red-ultralight,
+        // color: inherit,
+        // border: transparent
+    ),
+    prio7: (
+        background: #ea003e,
+        // color: white,
+        // border: transparent
+    ),
+);
+
+@mixin priority-style($index, $style) {
+    $background: map-get($style, background);
+
+    $color: none;
+    @if map-has-key($style, color) {
+        $color: map-get($style, color);
+    }
+    $border: $background;
+    @if map-has-key($style, border) {
+        $border: map-get($style, border);
+    }
+
+    tr.priority-#{$index} {
+        &.odd {
+            @if $color != none {
+                color: $color;
+            }
+            background: $background;
+        }
+
+        &.even {
+            @if $color != none {
+                color: $color;
+            }
+            background: $background;
+        }
+
+        &:hover {
+            background: darken($background, 5%);
+        }
+
+        &.odd td,
+        &.even td {
+            border-color: $border;
+        }
+
+        @if $color != none {
+            a {
+                color: $color;
+            }
+        }
+    }
 }
 
-tr.odd.priority-1 {
-    background: #d9edf7;
+@for $i from 1 through 7 {
+    $style: map-get($issue-priority-style, "prio#{$i}");
+    @include priority-style($i, $style);
 }
 
-tr.even.priority-1,
-table.list tbody tr.even.priority-1:hover {
+///* closed */
+tr.odd.status-5,
+table.list tbody tr.odd.status-5:hover {
 }
 
-tr.even.priority-1 {
-    background: #d9edf7;
+tr.odd.status-5 {
+    color: inherit;
+    background: $gray-light;
 }
 
-tr.priority-1 a {
+tr.even.status-5,
+table.list tbody tr.even.status-5:hover {
 }
 
-tr.odd.priority-1 td,
-tr.even.priority-1 td {
-    border-color: #d9edf7;
+tr.even.status-5 {
+    color: inherit;
+    background: $gray-light;
 }
 
-/* assigned */
-tr.odd.priority-2,
-table.list tbody tr.odd.priority-2:hover {
+tr.status-5 a {
+    color: inherit;
 }
 
-tr.odd.priority-2 {
-    background: #fff;
+tr.odd.status-5 td,
+tr.even.status-5 td {
+    border-color: $gray-light;
 }
 
-tr.even.priority-2,
-table.list tbody tr.even.priority-2:hover {
-}
-
-tr.even.priority-2 {
-    background: #fff;
-}
-
-tr.priority-2 a {
-}
-
-tr.odd.priority-2 td,
-tr.even.priority-2 td {
-    border-color: #fff;
-}
-
-/* resolved */
-tr.odd.priority-3,
-table.list tbody tr.odd.priority-3:hover {
-}
-
-tr.odd.priority-3 {
-    background: #dff0d8;
-}
-
-tr.even.priority-3,
-table.list tbody tr.even.priority-3:hover {
-}
-
-tr.even.priority-3 {
-    background: #dff0d8;
-}
-
-tr.priority-3 a {
-}
-
-tr.odd.priority-3 td,
-tr.even.priority-3 td {
-    border-color: #dff0d8;
-}
-
-/* feedback */
-tr.odd.priority-4,
-table.list tbody tr.odd.priority-4:hover {
-}
-
-tr.odd.priority-4 {
-    background: #fbf8ca;
-}
-
-tr.even.priority-4,
-table.list tbody tr.even.priority-4:hover {
-}
-
-tr.even.priority-4 {
-    background: #fbf8ca;
-}
-
-tr.priority-4 a {
-}
-
-tr.odd.priority-4 td,
-tr.even.priority-4 td {
-    border-color: #fbf8ca;
-}
-
-/* closed */
-tr.odd.priority-5,
-table.list tbody tr.odd.priority-5:hover {
-}
-
-tr.odd.priority-5 {
-    background: #f2dede;
-}
-
-tr.even.priority-5,
-table.list tbody tr.even.priority-5:hover {
-}
-
-tr.even.priority-5 {
-    background: #f2dede;
-}
-
-tr.priority-5 a {
-}
-
-tr.odd.priority-5 td,
-tr.even.priority-5 td {
-    border-color: #f2dede;
-}
-
-/* table design*/
+///* table design*/
 tr.issue {
     border: 1px solid #eeeff3;
 }
@@ -180,13 +176,12 @@ table.list th a {
 }
 
 table.list tbody tr:hover {
-    background-color: #dee4e9;
     transition: .5s;
 }
 
 table.list th.checkbox {
     width: 50px;
-    text-align: none;
+    text-align: inherit;
 }
 
 tr.issue td.done_ratio table.progress {

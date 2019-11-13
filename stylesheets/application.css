@@ -2141,69 +2141,112 @@ td.lastname,
 td.email {
   text-align: center !important; }
 
-/*
-1 New
-2 Assigned
-3 Resolved
-4 Feedback
-5 Closed
-*/
-/* new */
-tr.odd.priority-1 {
+tr.priority-1.odd {
   background: #d9edf7; }
 
-tr.even.priority-1 {
+tr.priority-1.even {
   background: #d9edf7; }
 
-tr.odd.priority-1 td,
-tr.even.priority-1 td {
+tr.priority-1:hover {
+  background: #c4e3f3; }
+
+tr.priority-1.odd td,
+tr.priority-1.even td {
   border-color: #d9edf7; }
 
-/* assigned */
-tr.odd.priority-2 {
-  background: #fff; }
+tr.priority-2.odd {
+  background: white; }
 
-tr.even.priority-2 {
-  background: #fff; }
+tr.priority-2.even {
+  background: white; }
 
-tr.odd.priority-2 td,
-tr.even.priority-2 td {
-  border-color: #fff; }
+tr.priority-2:hover {
+  background: #f2f2f2; }
 
-/* resolved */
-tr.odd.priority-3 {
+tr.priority-2.odd td,
+tr.priority-2.even td {
+  border-color: white; }
+
+tr.priority-3.odd {
   background: #dff0d8; }
 
-tr.even.priority-3 {
+tr.priority-3.even {
   background: #dff0d8; }
 
-tr.odd.priority-3 td,
-tr.even.priority-3 td {
+tr.priority-3:hover {
+  background: #d0e9c6; }
+
+tr.priority-3.odd td,
+tr.priority-3.even td {
   border-color: #dff0d8; }
 
-/* feedback */
-tr.odd.priority-4 {
+tr.priority-4.odd {
+  background: white; }
+
+tr.priority-4.even {
+  background: white; }
+
+tr.priority-4:hover {
+  background: #f2f2f2; }
+
+tr.priority-4.odd td,
+tr.priority-4.even td {
+  border-color: white; }
+
+tr.priority-5.odd {
   background: #fbf8ca; }
 
-tr.even.priority-4 {
+tr.priority-5.even {
   background: #fbf8ca; }
 
-tr.odd.priority-4 td,
-tr.even.priority-4 td {
+tr.priority-5:hover {
+  background: #f9f5b2; }
+
+tr.priority-5.odd td,
+tr.priority-5.even td {
   border-color: #fbf8ca; }
 
-/* closed */
-tr.odd.priority-5 {
+tr.priority-6.odd {
   background: #f2dede; }
 
-tr.even.priority-5 {
+tr.priority-6.even {
   background: #f2dede; }
 
-tr.odd.priority-5 td,
-tr.even.priority-5 td {
+tr.priority-6:hover {
+  background: #ebcccc; }
+
+tr.priority-6.odd td,
+tr.priority-6.even td {
   border-color: #f2dede; }
 
-/* table design*/
+tr.priority-7.odd {
+  background: #ea003e; }
+
+tr.priority-7.even {
+  background: #ea003e; }
+
+tr.priority-7:hover {
+  background: #d10037; }
+
+tr.priority-7.odd td,
+tr.priority-7.even td {
+  border-color: #ea003e; }
+
+tr.odd.status-5 {
+  color: inherit;
+  background: #d4dbe3; }
+
+tr.even.status-5 {
+  color: inherit;
+  background: #d4dbe3; }
+
+tr.status-5 a {
+  color: inherit; }
+
+tr.odd.status-5 td,
+tr.even.status-5 td {
+  border-color: #d4dbe3; }
+
 tr.issue {
   border: 1px solid #eeeff3; }
 
@@ -2242,12 +2285,11 @@ table.list th a {
   color: #f5f6f7; }
 
 table.list tbody tr:hover {
-  background-color: #dee4e9;
   transition: .5s; }
 
 table.list th.checkbox {
   width: 50px;
-  text-align: none; }
+  text-align: inherit; }
 
 tr.issue td.done_ratio table.progress {
   width: 100% !important; }
